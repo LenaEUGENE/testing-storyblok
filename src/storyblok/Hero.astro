@@ -1,0 +1,52 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+
+const { blok } = Astro.props;
+---
+
+<section {...storyblokEditable(blok)} class="py-24 bg-gray-900 text-gray-50">
+  <div class="container w-[90%] max-w-[1344px] mx-auto">
+    <div class="w-full grid grid-cols-1 md:grid-cols-2 lg-grid-cols-3 gap-6">
+      <div class="hero-content--wrapper">
+        <span class="text-pink-400 font-medium uppercase text-sm"
+          >{blok.overheadline}</span
+        >
+        <h1
+          class="text-indigo-400 font-bold leading-snug mb-8 text-4xl lg:text-7xl"
+        >
+          {blok.headline}
+        </h1>
+        <span class="text-xl">
+          {blok.tagline} Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Accusamus, reprehenderit!</span
+        >
+        <div
+          class="hero-CTA mt-12 max-w-xs sm:max-w-md flex flex-nowrap flex-col sm:flex-row gap-4 m-auto justify-center md:justify-start"
+        >
+          <button
+            class="flex w-full sm:w-auto py-3 px-5 bg-pink-400 rounded-xl"
+          >
+            <a class="sm:mb-0 w-full" href="/" target="_blank" rel="noopener">
+              <span class="font-medium text-normal">I am ready</span>
+            </a>
+          </button>
+          <a
+            class="flex w-full sm:w-auto py-3 px-5 bg-transparent border border-pink-400 rounded-xl"
+            href="/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="font-medium text-normal">Learn more</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-image--wrapper">
+        <img
+          src={blok.image?.filename}
+          alt={blok.image?.alt}
+          class="rounded-xl"
+        />
+      </div>
+    </div>
+  </div>
+</section>
